@@ -1,5 +1,5 @@
 class Task:
-    def __init__(self, title, description, is_completed=False):
+    def __init__(self, title: str, description: str, is_completed: bool=False):
         self.title = title
         self.description = description
         self.is_completed = is_completed
@@ -23,23 +23,21 @@ class Tasks:
         return self.tasks_list
 
     # Crear tarea
-    def createTask(self, title, description):
+    def createTask(self, title: str, description: str):
       task = Task(title, description)
       self.getList().append(task)
       return self.getList().index(task)
 
     # Leer una tarea
-    def getTask(self, index):
+    def getTask(self, id: int):
         try:
-            id = int(index)
             return self.getList()[id]
         except ValueError:
             raise TypeError("Por favor ingrese un ID válido.")
 
     # Editar una tarea
-    def editTask(self, index, title, description):
+    def editTask(self, id: int, title: str, description: str):
         try:
-            id = int(index)
             task = self.getTask(id)
             task.title = title
             task.description = description
@@ -49,8 +47,7 @@ class Tasks:
             raise TypeError("El ID debe ser un número entero.")
 
     # Eliminar una tarea
-    def removeTask(self, index):
-        id = int(index)
+    def removeTask(self, id: int):
         if not type(id) is int:
           raise TypeError("Only integers are allowed")
         return self.getList().pop(id)
@@ -129,7 +126,7 @@ class Panel:
                 print("Error: Por favor, ingresa un ID válido.")
                 self.showTask()
 
-    def printTask(self, index, task):
+    def printTask(self, index: int, task: Task):
         print(f"\n\nID de la tarea: {index}")
         print("-----------------------------------------------------------------------------")
         print(f"Título de la tarea: {task.title}")
@@ -167,7 +164,7 @@ class Panel:
             except ValueError:
                 print("Error: Por favor, ingresa una opción válida.")
 
-    def editTask(self, index, task=None):
+    def editTask(self, index: int, task: Task = None):
         title = str(input("Ingresa el título de la tarea: "))
         description = str(input("Ingresa la descripción de la tarea: "))
         taskEdited = self.tasks.editTask(index, title, description)
@@ -185,7 +182,7 @@ class Panel:
             task.complete()
         self.main()
 
-    def deleteTask(self, index):
+    def deleteTask(self, index: int):
         self.tasks.removeTask(index)
         self.main()
 
@@ -195,7 +192,6 @@ class Panel:
 
     def exitApp(self):
         print("Gracias por probar :D. DE NADA, VUELVA PRONTO")
-
 
 try:
     panel = Panel()

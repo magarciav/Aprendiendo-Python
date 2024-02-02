@@ -1,14 +1,14 @@
 # Funciones de la calculadora
-def suma(num1, num2):
+def suma(num1: float, num2: float):
     return num1 + num2
 
-def resta(num1, num2):
+def resta(num1: float, num2: float):
     return num1 - num2
 
-def multiplicacion(num1, num2):
+def multiplicacion(num1: float, num2: float):
     return num1 * num2
 
-def division(num1, num2):
+def division(num1: float, num2: float):
     return num1 / num2
 
 # Menú principal
