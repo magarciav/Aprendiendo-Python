@@ -1,2 +1,2 @@
-# mi_guia
+# Mis primero proyectos en Python
  Aprendiendo Python
